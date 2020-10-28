@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  wso2:
+    image: vgg-wso2:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "9443:9443"
+    restart: always
+    volumes:
+      - ./deployment.toml:/home/wso2carbon/wso2am-3.2.0/repository/conf/deployment.toml
+      - ./carbon.xml:/home/wso2carbon/wso2am-3.2.0/repository/conf/carbon.xml
